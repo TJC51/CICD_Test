@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions
+name: Workflow名称
+run-name: 运行实例名称
 
 # Event配置
 on:
