@@ -1,4 +1,4 @@
-name: Workflow名称
+name: {{vars.VARIABLE_TEST}}
 run-name: 运行实例名称
 
 # Event配置
