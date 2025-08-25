@@ -1,41 +1,14 @@
-name: ${{ vars.VARIABLE_TEST }}
+name: Workflow名称
 run-name: 运行实例名称
 
-# Event配置
 on:
   push:
-    # push到main分支时触发
     branches: ["master"]
-  # 手动触发
   workflow_dispatch:
 
-# job配置
 jobs:
-  # 一个名为build的job：模拟构建流程
-  build:
-    # 运行在Ubuntu环境
+  test:
     runs-on: ubuntu-latest
-    # step配置
     steps:
-      # 拉取代码
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      # 设置JDK
-      - name: Set up JDK 17
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 17
-          cache: maven
-      # Maven命令：clean + verify
-      - name: Build with Maven
-        run: mvn -B clean verify
-      # Maven命令：package
-      - name: Package application
-        run: mvn -B package -DskipTests
-      # 保存构建好的 jar（供下载）
-      - name: Upload JAR as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: SpringBootDemo-jar
-          path: target/*.jar
+      - name: echo
+        run: echo ${{ vars.VARIABLE_TEST }}
